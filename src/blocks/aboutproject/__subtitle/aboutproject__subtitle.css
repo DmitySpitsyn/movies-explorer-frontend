@@ -1,0 +1,26 @@
+.aboutproject__subtitle {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+    padding: 70px 0 0 0;
+    margin: 0;
+    text-align: left;
+    letter-spacing: -0.04em;
+}
+
+@media screen and (max-width:950px) {
+  .aboutproject__subtitle {
+    padding: 60px 0 0 0;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .aboutproject__subtitle {
+    max-width: 319px;
+    width: 100%;
+  }
+}

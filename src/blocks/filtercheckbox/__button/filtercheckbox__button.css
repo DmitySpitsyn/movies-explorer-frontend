@@ -1,0 +1,11 @@
+.filtercheckbox__button {
+    width: 36px;
+    height: 20px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .filtercheckbox__button:hover {
+      opacity: 0.5;
+  }

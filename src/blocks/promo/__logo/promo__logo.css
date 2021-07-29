@@ -1,0 +1,18 @@
+.promo__logo {
+    width: 320px;
+    height: 320px;
+    background-image: url(../../../images/promo_logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    opacity: 0.8;
+}
+
+@media screen and (max-width:400px) {
+  .promo__logo {
+    width: 248px;
+    height: 248px;
+    opacity: 0.87;
+  }
+}

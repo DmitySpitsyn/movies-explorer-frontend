@@ -1,0 +1,16 @@
+.form__input {
+border: none;
+width: 100%;
+color: #A0A0A0;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 18px;
+padding: 0;
+margin: 0;
+outline: none;
+}
+
+.form__input:hover {
+  opacity: 0.5;
+}

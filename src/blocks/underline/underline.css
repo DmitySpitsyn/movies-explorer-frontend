@@ -1,0 +1,13 @@
+.underline {
+  border-bottom-style: solid;
+    border-bottom-width: 1px;
+    max-width: 1140px;
+    width: 100%;
+    color: #E8E8E8;
+}
+
+@media screen and (max-width:800px) {
+  .underline {
+      max-width: 708px;
+  }
+}

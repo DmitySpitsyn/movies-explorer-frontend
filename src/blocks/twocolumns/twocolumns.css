@@ -1,0 +1,19 @@
+.twocolumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1140px;
+  width: 100%;
+}
+
+@media screen and (max-width:950px) {
+  .twocolumns {
+    max-width: 668px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .twocolumns {
+    grid-template-columns: 1fr;
+    max-width: 284px;
+  }
+}

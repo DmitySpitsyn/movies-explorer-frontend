@@ -1,0 +1,6 @@
+.form_type_profile {
+    max-width: 410px;
+    border: none;
+    padding: 0;
+    flex-direction: column;
+}

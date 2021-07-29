@@ -1,0 +1,11 @@
+.twocolumns_type_progressline {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+@media screen and (max-width:400px) {
+  .twocolumns_type_progressline {
+    padding: 60px 0 0 0;
+    grid-template-columns: 35% 65%;
+  }
+}

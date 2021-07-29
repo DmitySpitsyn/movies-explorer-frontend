@@ -1,0 +1,12 @@
+.moviescard__likebutton {
+  width: 24px;
+  height: 24px;
+  display: block;
+  position: relative;
+  margin: 10px 0 0 0;
+  cursor: pointer;
+  }
+  
+  .moviescard__likebutton:hover {
+      opacity: 0.5;
+  }

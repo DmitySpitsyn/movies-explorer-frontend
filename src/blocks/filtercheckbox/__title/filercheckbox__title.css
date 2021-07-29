@@ -1,0 +1,15 @@
+.filtercheckbox__title {
+    padding: 0;
+    margin: 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    margin: 0 14px 0 0;
+}
+
+@media screen and (max-width:800px) {
+  .filtercheckbox__title  {
+    margin: 0 12px 0 0;
+  }
+}

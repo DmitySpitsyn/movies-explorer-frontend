@@ -1,0 +1,15 @@
+    .moviescard__image {
+        width: 270px;
+    }
+    
+    @media screen and (max-width:800px) {
+        .moviescard__image {
+            width: 339px;
+        }
+    }
+    
+    @media screen and (max-width:400px) {
+        .moviescard__image {
+            width: 300px;
+        }
+    }

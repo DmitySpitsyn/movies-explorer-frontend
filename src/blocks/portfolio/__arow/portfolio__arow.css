@@ -1,0 +1,19 @@
+.portfolio__arow {
+    background-image: url(../../../images/portfolio_arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 19px;
+    width: 29px;
+}
+
+@media screen and (max-width:950px) {
+  .portfolio__arow {
+    width: 27px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .portfolio__arow {
+    width: 18px;
+  }
+}

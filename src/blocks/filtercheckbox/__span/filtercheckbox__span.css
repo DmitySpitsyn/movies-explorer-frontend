@@ -1,0 +1,13 @@
+.filtercheckbox__span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../../../images/check-button.svg) no-repeat;
+    background-position: 0 -40px;
+}
+
+input[type="checkbox"]:checked + .filtercheckbox__span {
+  background-position: 0 0;
+}

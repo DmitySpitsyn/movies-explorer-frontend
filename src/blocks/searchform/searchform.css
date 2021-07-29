@@ -1,0 +1,10 @@
+.searchform {
+    max-width: 1280px;
+    width: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 0 0 10px 0;
+    align-items: center;
+}
