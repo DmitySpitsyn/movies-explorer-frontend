@@ -1,18 +1,23 @@
 .searchform__form {
     display: flex;
     flex-direction: row;
-    margin: 0 0 83px 0;
+    margin: 0 0 70px 0;
     padding: 80px 0 10px 0;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
-
 @media screen and (max-width:800px) {
-  .searchform__form {
-    flex-direction: column;
-    padding: 60px 0 10px 0;
-    margin: 0 0 40px 0;
-  }
+    .searchform__form {
+        flex-direction: column;
+        padding: 60px 0 10px 0;
+        margin: 0 0 40px 0;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .searchform__form {
+        margin: 0 0 30px 0;
+    }
 }

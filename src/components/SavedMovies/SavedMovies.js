@@ -12,7 +12,7 @@ function SavedMovies(props) {
 
   return (
     <section className="movies">
-      <Header openMenu={openMenu} />
+      <Header isLoggedIn={true} openMenu={openMenu} />
       <SearchForm />
       <Preloader />
       <MoviesCardList />

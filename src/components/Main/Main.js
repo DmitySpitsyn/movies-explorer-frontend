@@ -22,7 +22,7 @@ function Main(props) {
 
   return (
     <section className='main'>
-      <Header onClickRegister={onClickRegister} onClickLogin={onClickLogin}/>
+      <Header isLoggedIn={false} onClickRegister={onClickRegister} onClickLogin={onClickLogin}/>
       <Promo />
       <NavTab />
       <AboutProject />

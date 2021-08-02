@@ -1,0 +1,12 @@
+@media screen and (max-width:950px) {
+  .singheader_type_signin {
+    padding: 230px 0 0 0;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .singheader_type_signin {
+    padding: 57px 0 0 0;
+  }
+}
+

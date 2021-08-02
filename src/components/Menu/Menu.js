@@ -1,13 +1,17 @@
+import { useLocation } from "react-router-dom";
 
 function Menu(props) {
+
+  const location = useLocation();
+
   return (
     <section className={`menu ${props.isOpen ? 'menu_opened' : ''}`}>
       <div className='menu__list'>
       <button type="button" className="menu__button-close" onClick={props.onClose}></button>
-      <h2 className='menu__title'>Главная</h2>
-          <a className="header__link header__link_type_underline header__link_type_menu" href="/movies" target="_blank">Фильмы</a>
-          <a className="header__link header__link_type_menu" href="/saved-movies" target="_blank">Сохранённые фильмы</a>
-          <a className="header__link header__button header__button_type_menu" href="/#" target="_blank"> </a>
+      <a className={`header__link header__link_type_menu`} href="/">Главная</a>
+          <a className={`header__link ${location.pathname.includes('/movies') ? 'header__link_type_underline' : ''} header__link_type_menu`} href="/movies">Фильмы</a>
+            <a className={`header__link ${location.pathname.includes('/saved-movies') ? 'header__link_type_underline' : ''} header__link_type_menu`} href="/saved-movies">Сохранённые фильмы</a>
+          <a className="header__link header__button header__button_type_menu" href="/profile"> </a>
       </div>
     </section>
   );

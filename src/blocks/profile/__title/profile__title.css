@@ -7,3 +7,16 @@
     padding: 0;
     margin: 74px 0 123px 0;
 }
+
+
+@media screen and (max-width:950px) {
+  .profile__title {
+    margin: 235px 0 96px 0;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .profile__title {
+    margin: 72px 0 77px 0;
+  }
+}

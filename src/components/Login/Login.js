@@ -7,7 +7,7 @@ function Login(props) {
 
   return (
       <section className='register'>
- <div className='signheader'>
+ <div className='signheader singheader_type_signin'>
    <div className='header__logo header__logo_type_loggedin header__logo_type_sign'></div>
    <h2 className='signheader__title'>Рады видеть!</h2>
     </div>
@@ -18,7 +18,7 @@ function Login(props) {
       <input id='password' className='form__input form__input_type_sign' placeholder='Введите пароль' type="password"></input>
       <button type='submit' className='form__button-submit form__button-submit_type_login'>Войти</button>
     </form>
-    <a className="register__link" onClick={onClickRegister} href="/#" target="_blank"><span className="register__link_type_text">Ещё не зарегистрированы?</span>Регистрация</a>
+    <a className="register__link register__link_type_signin" onClick={onClickRegister} href="/#" target="_blank"><span className="register__link_type_text">Ещё не зарегистрированы?</span>Регистрация</a>
   </section>
 )
 };

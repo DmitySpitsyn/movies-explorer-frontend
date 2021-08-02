@@ -9,10 +9,16 @@
     margin-bottom: 20px;
 }
 
+@media screen and (max-width:950px) {
+    .footer__title {
+        margin: 10px 0 20px 12px;
+    }
+}
+
 @media screen and (max-width:400px) {
-  .footer__title {
-    font-size: 12px;
-    line-height: 15px;
-    margin-bottom: 21px;
-  }
+    .footer__title {
+        font-size: 12px;
+        line-height: 15px;
+        margin-bottom: 21px;
+    }
 }

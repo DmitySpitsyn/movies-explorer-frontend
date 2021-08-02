@@ -4,3 +4,15 @@
     padding: 0;
     flex-direction: column;
 }
+
+@media screen and (max-width:950px) {
+  .form_type_profile {
+    margin: 0 0 3px 0;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .form_type_profile {
+    max-width: 260px;
+  }
+}

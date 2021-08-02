@@ -1,19 +1,19 @@
 import React, { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext'
 
 function Header(props) {
 
-  const currentUser = useContext(CurrentUserContext);
-
+const location = useLocation();
 
   const openMenu = () => {
     props.openMenu();
 }
-
+console.log(location.pathname)
   return (
-    <section className={`header ${currentUser.isLoggedIn ? 'header_type_loggedin' : ''}`}>
-      {currentUser.isLoggedIn ? <div className="header__logo header__logo_type_loggedin"></div> : <div className="header__logo"></div>}
-      {currentUser.isLoggedIn ?
+    <section className={`header ${props.isLoggedIn ? 'header_type_loggedin' : ''}`}>
+      {props.isLoggedIn ? <div className={`header__logo header__logo_type_loggedin ${location.pathname.includes('/profile') ? 'header__logo_type_profile' : ''}`}></div> : <div className="header__logo"></div>}
+      {props.isLoggedIn ?
         (<ul className='header__link-list'>
           <a className="header__link header__link_type_loggedin header__link_type_bold" href="/movies" target="_blank">Фильмы</a>
           <a className="header__link header__link_type_loggedin" href="/saved-movies" target="_blank">Сохранённые фильмы</a>

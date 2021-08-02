@@ -56,6 +56,7 @@
 @import url(../src/blocks/header/__link/_type_underline/header__link_type_underline.css);
 @import url(../src/blocks/header/__button/_type_menu/header__button_type_menu.css);
 @import url(../src/blocks/header/__button/_type_drop-down/header__button_type_drop-down.css);
+@import url(../src/blocks/header/__logo/_type_profile/header__logo_type_profile.css);
 @import url(../src/blocks/menu/menu.css);
 @import url(../src/blocks/menu/__list/menu__list.css);
 @import url(../src/blocks/menu/__button-close/menu__button-close.css);
@@ -86,6 +87,7 @@
 @import url(../src/blocks/register/register.css);
 @import url(../src/blocks/signheader/signheader.css);
 @import url(../src/blocks/signheader/__title/signheader__title.css);
+@import url(../src/blocks/signheader/_type_signin/signheader_type_signin.css);
 @import url(../src/blocks/header/__logo/_type_sign/header__logo_type_sign.css);
 @import url(../src/blocks/form/__label/form__label.css);
 @import url(../src/blocks/form/_type_sign/form_type_sign.css);
@@ -94,6 +96,7 @@
 @import url(../src/blocks/form/__button-submit/form__button-submit.css);
 @import url(../src/blocks/register/__link/register__link.css);
 @import url(../src/blocks/register/__link/_type_text/register__link_type_text.css);
+@import url(../src/blocks/register/__link/_type_signin/register__link_type_signin.css);
 @import url(../src/blocks/form/__button-submit/_type_login/form__button-submit_type_login.css);
 @import url(../src/blocks/profile/profile.css);
 @import url(../src/blocks/profile/__title/profile__title.css);
@@ -107,4 +110,5 @@
 @import url(../src/blocks/notfound/notfound.css);
 @import url(../src/blocks/notfound/__title/notfound__title.css);
 @import url(../src/blocks/notfound/__subtitle/notfound__subtitle.css);
+@import url(../src/blocks/moviescardlist/_type_saved-movies/moviescardlist_type_saved-movies.css);
 

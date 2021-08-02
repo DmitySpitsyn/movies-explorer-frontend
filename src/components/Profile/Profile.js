@@ -2,13 +2,14 @@ import Header from "../Header/header";
 
 function Profile(props) {
 
+
   const openMenu = () => {
     props.openMenu();
   }
 
   return (
     <section className='profile'>
-      <Header openMenu={openMenu} />
+      <Header isLoggedIn={true} openMenu={openMenu} />
       <h2 className='profile__title'>Привет, Дмитрий</h2>
       <form className='form form_type_profile'>
         <div className='form__input-label form__input-label_type_underline'>

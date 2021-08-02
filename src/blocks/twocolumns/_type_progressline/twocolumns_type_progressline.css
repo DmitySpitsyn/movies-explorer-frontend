@@ -1,6 +1,13 @@
 .twocolumns_type_progressline {
   display: grid;
   grid-template-columns: 20% 80%;
+  gap: 0;
+}
+
+@media screen and (max-width:950px) {
+  .twocolumns_type_progressline {
+    grid-template-columns: 21% 79%;
+  }
 }
 
 @media screen and (max-width:400px) {

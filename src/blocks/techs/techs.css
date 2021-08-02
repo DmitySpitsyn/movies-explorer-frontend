@@ -10,6 +10,12 @@
 
 @media screen and (max-width:950px) {
   .techs {
+    padding: 88px 0 0 0;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .techs {
     padding: 70px 0 0 0;
   }
 }

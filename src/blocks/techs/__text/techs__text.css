@@ -1,7 +1,7 @@
 .techs__text {
     font-style: normal;
     font-weight: normal;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 20px;
     margin: 0 0 100px 0;
     padding: 0;
@@ -15,7 +15,7 @@
     font-size: 12px;
     line-height: 18px;
     margin: 0 0 83px 0;
-    max-width: 292px;
+    max-width: 460px;
   }
 }
 
@@ -24,5 +24,6 @@
     font-size: 11px;
     line-height: 16px;
     margin: 0 0 50px 0;
+    max-width: 290px;
   }
 }

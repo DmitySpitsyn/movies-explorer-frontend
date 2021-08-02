@@ -1,5 +1,5 @@
-import { Switch, Route, Redirect, useHistory } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { Switch, Route, useHistory } from 'react-router-dom';
+import { useState, } from 'react';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
@@ -15,7 +15,7 @@ function App() {
 
   const history = useHistory();
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState({ isLoggedIn });
 
@@ -40,7 +40,6 @@ const onClickRegister = () => {
       <div className="App">
         <CurrentUserContext.Provider value={currentUser}>
           <Switch>
-
             <Route path="/movies">
               <Movies isLoggedIn={isLoggedIn} openMenu={openMenu} />
             </Route>

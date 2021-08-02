@@ -5,3 +5,10 @@
   max-width: 396px;
   width: 100%;
 }
+
+@media screen and (max-width:400px) {
+  .signheader {
+    align-items: center;
+    padding: 58px 0 0px 0px;
+  }
+}

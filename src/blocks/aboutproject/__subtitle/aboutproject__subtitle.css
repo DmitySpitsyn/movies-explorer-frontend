@@ -11,16 +11,17 @@
 }
 
 @media screen and (max-width:950px) {
-  .aboutproject__subtitle {
-    padding: 60px 0 0 0;
-    font-size: 18px;
-    line-height: 22px;
-  }
+    .aboutproject__subtitle {
+        padding: 60px 0 0 0;
+        max-width: 309px;
+        font-size: 18px;
+        line-height: 22px;
+    }
 }
 
 @media screen and (max-width:400px) {
-  .aboutproject__subtitle {
-    max-width: 319px;
-    width: 100%;
-  }
+    .aboutproject__subtitle {
+        max-width: 319px;
+        width: 100%;
+    }
 }

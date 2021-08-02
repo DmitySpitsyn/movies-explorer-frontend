@@ -1,3 +1,9 @@
 .form__button-submit_type_login {
-  margin: 179px 0 0 0;
+    margin: 179px 0 0 0;
+}
+
+@media screen and (max-width:400px) {
+    .form__button-submit_type_login {
+        margin: 272px 0 0 0;
+    }
 }

@@ -5,3 +5,17 @@
     line-height: 169px;
     margin: 246px 0 0 0;
 }
+
+@media screen and (max-width:950px) {
+    .notfound__title {
+        margin: 409px 0 0 0;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .notfound__title {
+        font-size: 80px;
+        line-height: 97px;
+        margin: 330px 0 0 0;
+    }
+}

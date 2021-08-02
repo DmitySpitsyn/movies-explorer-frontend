@@ -12,3 +12,9 @@
 .portfolio__link:not(:first-child) {
   padding: 0 0 0 20px;
 }
+
+@media screen and (max-width:400px) {
+  .portfolio__link:not(:first-child) {
+    padding: 0 0 0 25px;
+  }
+}

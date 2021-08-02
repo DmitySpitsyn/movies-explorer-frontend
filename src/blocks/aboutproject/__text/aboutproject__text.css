@@ -23,7 +23,7 @@
 
 @media screen and (max-width:400px) {
   .aboutproject__text {
-      margin: 16px 0 0 0;
+      margin: 15px 0 0 0;
       max-width: 284px;
       width: 100%;
       font-size: 11px;

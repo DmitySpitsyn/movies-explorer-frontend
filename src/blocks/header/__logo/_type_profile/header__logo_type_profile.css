@@ -1,0 +1,15 @@
+.header__logo_type_profile {
+  background-image: url(../../../../images/Logo_isLogin.svg);
+}
+
+@media screen and (max-width: 950px) {
+  .header__logo_type_profile {
+    background-image: url(../../../../images/logo-profile.svg);
+}
+}
+
+@media screen and (max-width: 400px) {
+  .header__logo_type_profile {
+    background-image: url(../../../../images/Logo_isLogin.svg);
+}
+}
