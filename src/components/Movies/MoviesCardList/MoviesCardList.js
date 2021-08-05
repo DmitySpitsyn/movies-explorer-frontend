@@ -11,11 +11,11 @@ function MoviesCardList(props) {
     
     function howCards() {
       if (window.innerWidth > 800) 
-      {props.resetPageCounter(); setAmountCards(16); return};
+      {props.resetPageCounter(); setAmountCards(7); return};
       if (window.innerWidth <= 400) 
       {props.resetPageCounter(); setAmountCards(5); return};
       if (window.innerWidth <= 800) 
-      {props.resetPageCounter(); setAmountCards(8); return};
+      {props.resetPageCounter(); setAmountCards(7); return};
     }
     howCards();
     window.addEventListener('resize', () => {

@@ -1,16 +1,22 @@
 .form__input {
-border: none;
-width: 100%;
-color: #A0A0A0;
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 18px;
-padding: 0;
-margin: 0 0 0 20px;
-outline: none;
+    border: none;
+    width: 100%;
+    background-color: #F4F4F4;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0 0 0 20px;
+    outline: none;
+    border-radius: 8px;
+}
+
+@media screen and (max-width:400px) {
+    .form__input {
+        padding: 0 0 0 9px;
+    }
 }
 
 .form__input:hover {
-  opacity: 0.5;
+    opacity: 0.5;
 }

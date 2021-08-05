@@ -3,7 +3,7 @@ import Preloader from '../Movies/Preloader/Preloader'
 import MoviesCardList from './MoviesCardList/MoviesCardList'
 import Header from '../Header/header';
 import Footer from '../Footer/Footer';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function Movies(props) {
 

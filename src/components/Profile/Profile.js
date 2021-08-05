@@ -22,7 +22,7 @@ function Profile(props) {
         </div>
         <button type='submit' className='form__button-submit form__button-submit_type_profile'>Редактировать</button>
       </form>
-      <a className="register__link register__link_type_profile" href="/#" target="_blank">Выйти из аккаунта</a>
+      <a className="register__link register__link_type_profile" href="/#">Выйти из аккаунта</a>
     </section>
   )
 };

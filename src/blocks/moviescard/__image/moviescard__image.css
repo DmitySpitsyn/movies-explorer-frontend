@@ -1,11 +1,6 @@
     .moviescard__image {
-        width: 270px;
-    }
-    
-    @media screen and (max-width:800px) {
-        .moviescard__image {
-            width: 339px;
-        }
+      width: 220px;
+      margin: 0 6px 0 0;
     }
     
     @media screen and (max-width:400px) {

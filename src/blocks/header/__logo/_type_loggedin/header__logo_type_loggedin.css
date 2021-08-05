@@ -1,11 +1,10 @@
 .header__logo_type_loggedin {
-    background-image: url(../../../../images/Logo_isLogin.svg);
     margin: 18px 0 18px 0;
 }
 
 @media screen and (max-width: 950px) {
     .header__logo_type_loggedin {
-        margin: 18px 0 0 30px;
+      margin: 18px 0 18px 0;
     }
 }
 

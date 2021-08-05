@@ -6,6 +6,13 @@
     max-width: 1280px;
     width: 100%;
     margin: auto;
+    background-color: #F8F8F8;
+}
+
+@media screen and (max-width:768px) {
+  .footer {
+    background-color: #FAFAFA;
+  }
 }
 
 @media screen and (max-width:400px) {

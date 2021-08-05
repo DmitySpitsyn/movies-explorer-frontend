@@ -11,17 +11,15 @@ function MoviesCard(props) {
 
   return (
     <section className="moviescard">
-      <img className='moviescard__image' src={Card1} alt='Card1'></img>
       <div className='moviescard__description'>
         <h2 className='moviescard__title'>{props.card.nameRU}</h2>
+          <span className='moviescard__timestamp'>1ч42м</span>
         <label className='moviescard__likebutton'>
-        <input type='checkbox' name='filter' visible='none' onInput={checkLike}></input>
+          <input type='checkbox' name='filter' visible='none' onInput={checkLike}></input>
           <span className='moviescard__span'></span>
-      </label>
+        </label>
       </div>
-      <div className='moviescard__time'>
-        <span className='moviescard__timestamp'>1ч42м</span>
-      </div>
+      <img className='moviescard__image' src={Card1} alt='Card1'></img>
     </section>
   );
 }

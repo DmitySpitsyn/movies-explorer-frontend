@@ -11,7 +11,7 @@ function Menu(props) {
       <a className={`header__link header__link_type_menu`} href="/">Главная</a>
           <a className={`header__link ${location.pathname.includes('/movies') ? 'header__link_type_underline' : ''} header__link_type_menu`} href="/movies">Фильмы</a>
             <a className={`header__link ${location.pathname.includes('/saved-movies') ? 'header__link_type_underline' : ''} header__link_type_menu`} href="/saved-movies">Сохранённые фильмы</a>
-          <a className="header__link header__button header__button_type_menu" href="/profile"> </a>
+            <button className="header__link header__button_type_menu header__button header__button_type_loggedin" href="/profile">Аккаунт</button>
       </div>
     </section>
   );

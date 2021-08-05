@@ -1,19 +1,20 @@
 .portfolio__arow {
-    background-image: url(../../../images/portfolio_arrow.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-bottom: 19px;
-    width: 29px;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 60px;
+    letter-spacing: -0.04em;
 }
 
 @media screen and (max-width:950px) {
-  .portfolio__arow {
-    width: 27px;
-  }
+    .portfolio__arow {
+        font-size: 28px;
+        line-height: 60px;
+    }
 }
 
 @media screen and (max-width:400px) {
-  .portfolio__arow {
-    width: 18px;
-  }
+    .portfolio__arow {
+        font-size: 18px;
+        line-height: 28px;
+    }
 }

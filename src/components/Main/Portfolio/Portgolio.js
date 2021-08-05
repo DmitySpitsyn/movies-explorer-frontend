@@ -20,15 +20,15 @@ function Portfolio(props) {
       <ul className='portfolio__workslist'>
         <li class='portfolio__listitem'>
           <a className='portfolio__worklink' href="/#">Статичный сайт</a>
-          <div className='portfolio__arow'></div>
+          <span className='portfolio__arow'>&#8599;</span>
         </li>
         <li class='portfolio__listitem'>
           <a className='portfolio__worklink' href="/#">Адаптивный сайт</a>
-          <div className='portfolio__arow'></div>
+          <span className='portfolio__arow'>&#8599;</span>
         </li>
         <li class='portfolio__listitem'>
           <a className='portfolio__worklink' href="/#">Одностраничное приложение</a>
-          <div className='portfolio__arow'></div>
+          <span className='portfolio__arow'>&#8599;</span>
         </li>
       </ul>
     </section>

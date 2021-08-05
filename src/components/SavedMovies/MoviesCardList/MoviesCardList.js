@@ -2,7 +2,7 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 
 function MoviesCardList() {
   return (
-    <section className="moviescardlist moviescardlist_type_saved-movies">
+    <section className="moviescardlist">
       {cards.map((card) => (<MoviesCard
         key={card.id}
         card={card}

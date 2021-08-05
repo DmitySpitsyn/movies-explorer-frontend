@@ -1,11 +1,11 @@
 .header__button_type_menu {
-    background-image: url(../../../../images/acount-image-menu.svg);
     width: 100px;
     background-color: #FFFFFF;
     border: none;
     position: absolute;
     bottom: 92px;
     margin: 0 0 0 25px;
+    display: block;
 }
 
 @media screen and (max-width:400px) {

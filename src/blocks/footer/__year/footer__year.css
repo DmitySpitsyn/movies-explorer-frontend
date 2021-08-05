@@ -8,12 +8,6 @@
     padding: 0;
 }
 
-@media screen and (max-width:950px) {
-    .footer__year {
-        margin: 0 0 0 16px;
-    }
-}
-
 @media screen and (max-width:400px) {
     .footer__year {
         grid-row-start: 2;

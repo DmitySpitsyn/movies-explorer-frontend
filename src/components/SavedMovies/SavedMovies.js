@@ -10,12 +10,17 @@ function SavedMovies(props) {
     props.openMenu();
 }
 
+  const openProfile = () => {
+    props.openProfile();
+  }
+
   return (
     <section className="movies">
       <Header isLoggedIn={true} openMenu={openMenu} />
       <SearchForm />
       <Preloader />
       <MoviesCardList />
+      <div className='saveddevider'></div>
       <Footer />
     </section>
   );

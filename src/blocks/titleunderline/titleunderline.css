@@ -22,8 +22,8 @@
 
 @media screen and (max-width:400px) {
   .titleunderline {
-    padding: 0 0 28px 0;
-    max-width: 284px;
+    padding: 0 0 27px 0px;
+    max-width: 289px;
     font-size: 18px;
     line-height: 22px;
   }
