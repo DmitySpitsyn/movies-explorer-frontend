@@ -1,0 +1,14 @@
+.header__link_type_loggedin {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    color: #000000;
+    margin-left: 16px;
+}
+
+@media screen and (max-width:950px) {
+    .header__link_type_loggedin {
+        display: none;
+    }
+}

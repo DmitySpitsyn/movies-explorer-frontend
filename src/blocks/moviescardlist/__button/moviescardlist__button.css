@@ -1,0 +1,35 @@
+.moviescardlist__button {
+    max-width: 1140px;
+    width: 100%;
+    height: 36px;
+    background-color:#F4F4F4;
+    border: none;
+    border-radius: 6px;
+    margin: 58px 0 87px 0;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.moviescardlist__button:disabled {
+    display: none;
+}
+
+.moviescardlist__button:hover {
+    opacity: 0.5;
+}
+
+@media screen and (max-width:800px) {
+    .moviescardlist__button {
+        max-width: 708px;
+        margin: 81px 0 85px 0;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .moviescardlist__button {
+        max-width: 300px;
+        margin: 73px 0 99px 0;
+    }
+}

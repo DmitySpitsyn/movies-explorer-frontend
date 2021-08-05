@@ -1,0 +1,15 @@
+.notfound__subtitle {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    margin: 0 0 184px 0;
+}
+
+@media screen and (max-width:400px) {
+    .notfound__subtitle {
+        font-size: 12px;
+        line-height: 15px;
+        margin: 10px 0 270px 0;
+    }
+}

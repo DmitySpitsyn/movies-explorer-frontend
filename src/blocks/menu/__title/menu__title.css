@@ -1,0 +1,15 @@
+.menu__title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+    margin: 159px 0 4px 0;
+    padding: 0;
+}
+
+@media screen and (max-width:400px) {
+  .menu__title {
+    margin: 144px 0 4px 0;
+  }
+}

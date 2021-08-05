@@ -1,0 +1,20 @@
+.header__link-list {
+    display: flex;
+    list-style-type: none;
+    flex-direction: row;
+    margin: 0 0 21px 0;
+    padding: 0;
+}
+
+@media screen and (max-width:768px) {
+  .header__link-list {
+    margin: 0 0 21px 0;
+  }
+}
+
+
+@media screen and (max-width:400px) {
+  .header__link-list {
+    margin: 0;
+  }
+}

@@ -1,0 +1,15 @@
+.movies {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    max-width: 1140px;
+    width: 100%;
+    flex-direction: column;
+    background-color: #FAFAFA;
+}
+
+@media screen and (max-width:950px) {
+  .movies {
+    max-width: 708px;
+  }
+}

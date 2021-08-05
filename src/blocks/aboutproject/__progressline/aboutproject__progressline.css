@@ -1,0 +1,21 @@
+.aboutproject__progressline {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 14px 0;
+    height: 36px;
+    background-color: #F2F2F2;
+    width: 100%;
+}
+
+@media screen and (max-width:400px) {
+  .aboutproject__progressline {
+    font-size: 11px;
+    line-height: 13px;
+    margin: 0 0 10px 0;
+  }
+}

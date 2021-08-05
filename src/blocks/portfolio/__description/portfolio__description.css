@@ -1,0 +1,24 @@
+.portfolio__description {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    margin: 18px 0 0 0;
+    padding: 0;
+}
+
+@media screen and (max-width:950px) {
+  .portfolio__description {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 16px 0 0 0;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .portfolio__description {
+    font-size: 11px;
+    line-height: 16px;
+    margin: 20px 0 0 0;
+  }
+}

@@ -1,0 +1,11 @@
+.saveddevider {
+    max-width: 1280px;
+    width: 100%;
+    padding: 0 0 154px 0;
+}
+
+@media screen and (max-width:950px) {
+    .saveddevider {
+        padding: 0 0 177px 0;
+    }
+}
