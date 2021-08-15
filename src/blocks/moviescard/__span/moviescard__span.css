@@ -9,6 +9,6 @@
     background-color: #F4F4F4;
 }
 
-input[type="checkbox"]:checked+.moviescard__span {
-    background-position: -44px -10px;
+.moviescard__span_checked {
+  background-position: -44px -10px;
 }

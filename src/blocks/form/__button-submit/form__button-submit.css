@@ -17,6 +17,12 @@
     opacity: 0.5;
 }
 
+.form__button-submit:disabled,
+button[disabled]{
+  background-color: #cccccc;
+  color: #666666;
+}
+
 @media screen and (max-width:400px) {
   .form__button-submit {
     margin: 160px 0 0 0;

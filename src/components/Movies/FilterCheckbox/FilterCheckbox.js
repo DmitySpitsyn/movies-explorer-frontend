@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function FilterCheckBox(props) {
 
@@ -7,7 +7,9 @@ function FilterCheckBox(props) {
   function checkFilter() {
     setIsFilter(!isFilter);
   }
-  console.log(isFilter)
+
+  props.setShortMovie(isFilter);
+
   return (
     <section className="filtercheckbox">
       <label className='filtercheckbox__button'>

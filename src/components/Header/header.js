@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext'
 
 function Header(props) {
 
@@ -15,7 +14,7 @@ const history = useHistory();
     }
 
   return (
-    <section className={`header ${props.isLoggedIn ? 'header_type_loggedin' : ''}`}>
+    <section className={`header ${props.isLoggedIn ? 'header_type_loggedin' : ''} ${props.isOpenHeader ? 'header_opened' : ''}`}>
       {props.isLoggedIn ? <div className='header__logo header__logo_type_loggedin'></div> : <div className="header__logo"></div>}
       {props.isLoggedIn ?
         (<><ul className='header__link-list header__link-list_type_loggedin'>
@@ -28,8 +27,8 @@ const history = useHistory();
         )
         : (
           <ul className='header__link-list'>
-            <a className="header__link" onClick={props.onClickRegister} href="/#" target="_blank">Регистрация</a>
-            <a className="header__link header__button" onClick={props.onClickLogin} href="/#" target="_blank">Войти</a>
+            <a className="header__link" onClick={props.onClickRegister} href="/signup" >Регистрация</a>
+            <a className="header__link header__button" onClick={props.onClickLogin} href="/signin" >Войти</a>
           </ul>)}
     </section>
   )

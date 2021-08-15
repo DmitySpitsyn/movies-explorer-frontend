@@ -1,5 +1,6 @@
 function NotFound(props) {
 
+
   return (
     <section className='notfound'>
       <h2 className='notfound__title'>404</h2>

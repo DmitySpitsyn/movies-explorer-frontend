@@ -1,25 +1,17 @@
 import SearchForm from "../Movies/SearchForm/SearchForm";
-import Preloader from "../Movies/Preloader/Preloader";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
-import Header from "../Header/header";
 import Footer from "../Footer/Footer";
 
 function SavedMovies(props) {
 
-  const openMenu = () => {
-    props.openMenu();
-}
 
-  const openProfile = () => {
-    props.openProfile();
-  }
+props.setIsOpenHeader(true);
+
 
   return (
     <section className="movies">
-      <Header isLoggedIn={true} openMenu={openMenu} />
-      <SearchForm />
-      <Preloader />
-      <MoviesCardList />
+      <SearchForm handleSearch={props.handleSearchSaved} setShortMovie={props.setShortMovie}/>
+      <MoviesCardList savedMovies={props.savedMovies} deleteMovie={props.deleteMovie}/>
       <div className='saveddevider'></div>
       <Footer />
     </section>
