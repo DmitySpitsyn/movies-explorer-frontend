@@ -29,7 +29,7 @@ function Movies(props) {
   return (
     <section className="movies">
     <SearchForm handleSearch={handleSearch} setShortMovie={props.setShortMovie}/>
-      <MoviesCardList checkLike={props.checkLike} deleteMovie={props.deleteMovie} savedMovies={props.savedMovies} createMovies={props.createMovies} isLiked={props.isLiked} resetPageCounter={resetPageCounter} filteredMovies={props.filteredMovies} pageCounter = {pageCounter} hideButton = {hideButton}/>
+      <MoviesCardList checkLike={props.checkLike} deleteMovie={props.deleteMovie} savedMovies={props.savedMovies} createMovies={props.createMovies} resetPageCounter={resetPageCounter} filteredMovies={props.filteredMovies} pageCounter = {pageCounter} hideButton = {hideButton}/>
       <div className='moviescardlist__more'>
         <button className='moviescardlist__button' disabled={buttonState} onClick={updatePage}>Ещё</button>
       </div>

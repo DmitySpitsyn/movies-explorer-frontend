@@ -15,6 +15,7 @@ import auth from '../../utils/MainApi'
 import moviesApi from '../../utils/MoviesApi';
 import Preloader from '../Preloader/Preloader';
 import Header from '../Header/header';
+import AutorizationRoute from '../AutorizationRoute/AutorizationRoute';
 
 function App() {
 
@@ -26,54 +27,72 @@ function App() {
   const [currentUser, setCurrentUser] = useState({ name: 'Загрузка...', email: 'Загрузка...' });
   const [isOpenHeader, setIsOpenHeader] = useState(false);
   const [filteredMovies, setFilteredMovies] = useState([]);
+  const [filteredMoviesDubble, setFilteredMoviesDoubble] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
+  const [savedMoviesDubble, setSavedMoviesDubble] = useState([]);
   const [shortMovie, setShortMovie] = useState(false);
+  const [temporaryMovies, setTemporaryMovies] = useState([]);
+
 
   useEffect(() => {
     if (isLoggedIn) {
       setIsOpenPreloader(true);
       const movies = JSON.parse(localStorage.getItem('movies'));
-      if (movies) {
-        setFilteredMovies(movies);
-      }
+      moviesApi.getMovies().then((data) => {
+        setFilteredMoviesDoubble(data);
+        if (!movies) {
+          setFilteredMovies(data);
+        } else {
+          setFilteredMovies(movies);
+        }
+      }).catch((err) => console.log(err));
+
       Promise.all([auth.authorization(), auth.getSavedMovies()])
         .then(([user, savedmovies]) => {
-          setCurrentUser({ name: user.name, email: user.email })
-          setSavedMovies(savedmovies)
+          setCurrentUser({ name: user.name, email: user.email, message: '' })
+          setSavedMovies(savedmovies);
+          setSavedMoviesDubble(savedmovies);
         }).then(() => setIsOpenPreloader(false)).catch(err => console.log(err));
 
     }
   }, [isLoggedIn]);
 
-    
+
   useEffect(() => {
     tokenCheck();
   }, []);
 
+  useEffect(() => {
+    handleSearchShort();
+  }, [shortMovie]);
+
 
   function onRegister(registerData) {
     return auth.onRegister(registerData).then(() => {
-      history.push('/signin');
+      history.push('/movies');
     });
   }
 
   function onLogin(loginData) {
     return auth.onLogin(loginData).then((jwt) => {
+      setIsOpenPreloader(true);
       localStorage.setItem('jwt', jwt.jwt);
       setIsLoggedIn(true);
-      history.push('/movies');
+    }).then(() => {
       setIsOpenPreloader(false);
-    }).then(() => history.push('/movies'));
+      history.push('/movies')
+    });
   };
 
   function tokenCheck() {
-
     return auth.authorization()
       .then((data) => {
+        setIsOpenPreloader(true);
         setCurrentUser({ name: data.name, email: data.email })
         setIsLoggedIn(true);
         setIsOpenPreloader(false);
       }).then(() => {
+        setIsOpenPreloader(false);
         if (location.pathname.includes('/movies')) {
           history.push('/movies');
         }
@@ -88,18 +107,23 @@ function App() {
   };
 
   const onUpdateUser = (data) => {
-    auth.editUser(data.name, data.email)
-      .then((data) => {
-        setCurrentUser(data);
-      });
+    setIsOpenPreloader(true);
+    auth.editUser(data.name, data.email).then((data) => {
+      setCurrentUser({ name: data.name, email: data.email, message: 'Данные пользователя обновлены!' });
+      setIsOpenPreloader(false);
+    }).catch((err) => {
+      setCurrentUser({ message: 'Произошла ошибка при обновлении!' });
+      setIsOpenPreloader(false);
+    })
   };
 
   const onLogOut = () => {
     auth.onLogOut().then(() => {
+      setIsOpenPreloader(false);
       history.push('/');
       setIsLoggedIn(false);
-    }).catch(err => console.log(err));
-
+    }).then(() => setIsOpenPreloader(false))
+      .catch(err => console.log(err));
   }
 
   const closeMenu = () => {
@@ -123,74 +147,105 @@ function App() {
   }
 
   const handleSearchSaved = (data) => {
+    setIsOpenPreloader(true);
     let filtered = [];
     if (shortMovie) {
-      filtered = savedMovies.filter(movie => movie.nameRU.toLowerCase().includes(data)).filter(movie => movie.duration <= 40);
+      filtered = savedMoviesDubble.filter(movie => movie.nameRU.toLowerCase().includes(data)).filter(movie => movie.duration <= 40);
     } else {
-      filtered = savedMovies.filter(movie => movie.nameRU.toLowerCase().includes(data));
+      filtered = savedMoviesDubble.filter(movie => movie.nameRU.toLowerCase().includes(data));
     }
     setSavedMovies(filtered);
+    setIsOpenPreloader(false);
   };
 
-  
-
-  const handleSearch = (data) => {
-    setFilteredMovies([]);
-    moviesApi.getMovies().then((movies) => {
+  const handleSearchShort = () => {
+    if (location.pathname.includes('/movies')) {
+      setTemporaryMovies(filteredMovies);
       let filtered = [];
       if (shortMovie) {
-        filtered = movies.filter(movie => movie.nameRU.toLowerCase().includes(data)).filter(movie => movie.duration <= 40);
+        setIsOpenPreloader(true);
+        filtered = filteredMovies.filter(movie => movie.duration <= 40);
+        setFilteredMovies(filtered);
       } else {
-        filtered = movies.filter(movie => movie.nameRU.toLowerCase().includes(data));
+        setFilteredMovies(temporaryMovies);
       }
-      setFilteredMovies(filtered)
-      localStorage.setItem('movies', JSON.stringify(filtered));
-    })
-      .catch((err) => console.log(err))
+    }
+    if (location.pathname.includes('/saved-movies')) {
+      setTemporaryMovies(savedMovies);
+      let filtered = [];
+      if (shortMovie) {
+        setIsOpenPreloader(true);
+        filtered = savedMovies.filter(movie => movie.duration <= 40);
+        setSavedMovies(filtered);
+      } else {
+        setSavedMovies(temporaryMovies);
+      }
+    }
+    setIsOpenPreloader(false);
+  };
+
+
+
+  const handleSearch = (data) => {
+    setIsOpenPreloader(true);
+    let filtered = [];
+    if (shortMovie) {
+      filtered = filteredMoviesDubble.filter(movie => movie.nameRU.toLowerCase().includes(data)).filter(movie => movie.duration <= 40);
+    } else {
+      filtered = filteredMoviesDubble.filter(movie => movie.nameRU.toLowerCase().includes(data));
+    }
+    setFilteredMovies(filtered);
+    localStorage.setItem('movies', JSON.stringify(filtered));
+    setIsOpenPreloader(false);
   }
+
 
   const createMovies = (data) => {
     return auth.createMovies(data).then((data) => {
-      auth.getSavedMovies().then((data) => setSavedMovies(data));
+      setIsOpenPreloader(true);
+      auth.getSavedMovies().then((data) => {
+        setSavedMovies(data)
+        setSavedMoviesDubble(data)
+      });
+      setIsOpenPreloader(false);
       return data;
     })
-      .catch(err => err.json().then((err) => alert(err.validation.body.message)));
+      .catch(err => err.json().then((err) => {
+        setIsOpenPreloader(false);
+        alert(err.validation.body.message)
+      }));
   }
 
   const deleteMovie = (data) => {
-    console.log(data)
-    return auth.deleteMovie(data).then((data) => 
-    {auth.getSavedMovies().then((data) => setSavedMovies(data));
-    return data;
+    setIsOpenPreloader(true);
+    return auth.deleteMovie(data).then((data) => {
+      auth.getSavedMovies().then((data) => {
+        setSavedMovies(data)
+        setSavedMoviesDubble(data)
+      });
+      setIsOpenPreloader(false)
+      return data;
     })
       .catch(err => console.log(err));
-      
   }
 
   function checkLike(isLiked, card, savedmovie) {
+    setIsOpenPreloader(true);
     if (!isLiked) {
       createMovies(card).then((newCard) => {
         if (newCard.movieId) {
-        setFilteredMovies((state) => state.map((c) => c.id === newCard.movieId ? card : c)); }
+          setFilteredMovies((state) => state.map((c) => c.id === newCard.movieId ? card : c));
+          setIsOpenPreloader(false)
+        }
       }).catch(err => console.log(err));
     }
     else {
       deleteMovie(savedmovie).then((newCard) => {
         setFilteredMovies((state) => state.map((c) => c.id === newCard.movieId ? card : c));
+        setIsOpenPreloader(false)
       }).catch(err => console.log(err));
     }
   }
-
-const handleMovieLike = (savedMovies) => {
-  const movies = JSON.parse(localStorage.getItem('movies'));
-  console.log(movies)
-  for (let i=0; i < savedMovies.length; i += 1) {
-    const isLiked = movies.moviesId.some(i => i === savedMovies.moviesId[i]);
-    if (isLiked) {return isLiked}
-  }
-
-
-}
 
   return (
     <section className="root">
@@ -200,18 +255,14 @@ const handleMovieLike = (savedMovies) => {
           <Preloader isOpen={isOpenPreloader} />
           <Switch>
             <ProtectedRoute exact path="/movies" setShortMovie={setShortMovie} createMovies={createMovies} savedMovies={savedMovies} isLoggedIn={isLoggedIn} isOpenPreloader={isOpenPreloader} setIsOpenHeader={setIsOpenHeader} handleSearch={handleSearch}
-              openMenu={openMenu} checkLike={checkLike} deleteMovie={deleteMovie} isLiked={handleMovieLike} filteredMovies={filteredMovies} component={Movies}
+              openMenu={openMenu} checkLike={checkLike} deleteMovie={deleteMovie} filteredMovies={filteredMovies} component={Movies}
             />
             <ProtectedRoute exact path="/saved-movies"
               isLoggedIn={isLoggedIn} handleSearchSaved={handleSearchSaved} deleteMovie={deleteMovie} setShortMovie={setShortMovie} savedMovies={savedMovies} isOpenPreloader={isOpenPreloader} setIsOpenHeader={setIsOpenHeader} openMenu={openMenu} component={SavedMovies} /> ||
             <ProtectedRoute path="/profile" isOpenPreloader={isOpenPreloader} setIsOpenHeader={setIsOpenHeader} isLoggedIn={isLoggedIn} onUpdateUser={onUpdateUser}
               openMenu={openMenu} onLogOut={onLogOut} component={Profile} />
-            <Route path="/signin">
-              <Login onClickRegister={onClickRegister} onLogin={onLogin} />
-            </Route>
-            <Route path="/signup">
-              <Register onClickLogin={onClickLogin} onRegister={onRegister} />
-            </Route>
+            <AutorizationRoute path="/signin" isLoggedIn={isLoggedIn} onClickRegister={onClickRegister} onLogin={onLogin} component={Login} />
+            <AutorizationRoute path="/signup" isLoggedIn={isLoggedIn} onClickLogin={onClickLogin} onRegister={onRegister} component={Register} />
             <Route path="/" exact={true}>
               <Main onClickRegister={onClickRegister} setIsOpenHeader={setIsOpenHeader} isOpenPreloader={isOpenPreloader} onClickLogin={onClickLogin} />
             </Route>

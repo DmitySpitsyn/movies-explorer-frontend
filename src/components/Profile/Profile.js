@@ -13,14 +13,23 @@ function Profile(props) {
   props.setIsOpenHeader(true);
 
   useEffect(() => {
-    setValues({name: currentUser.name, email: currentUser.email })
+    setValues({name: currentUser.name, email: currentUser.email, message: currentUser.message});
   }, [currentUser]);
+
+  useEffect(() => {
+    setErrors({email: currentUser.message});
+  }, [currentUser.message]);
+
+  useEffect(() => {
+    blockButton();
+  }, [values]);
 
   function handleChange(evt) {
 
     const target = evt.target;
     const name = target.name;
     const value = target.value;
+
     if (name === 'email') {
       validationEmail(name, value);
     } else {
@@ -30,6 +39,11 @@ function Profile(props) {
     setValues({ ...values, [name]: value });
   }
 
+function blockButton() {
+  if ((currentUser.name === values.name) && (currentUser.email === values.email)) {
+    setIsValid(false);
+  };
+}
 
   function validationEmail(name, value) {
     if (validator.isEmail(value)) {
@@ -41,14 +55,15 @@ function Profile(props) {
     }
   }
 
-function handleSubmit(evt) {
-    evt.preventDefault();
-    props.onUpdateUser(values)
-};
 
-  function onLogOut(evt) {
-    props.onLogOut();
-  }
+    function handleSubmit(evt) {
+      evt.preventDefault();
+      props.onUpdateUser(values);
+    };
+
+    function onLogOut(evt) {
+      props.onLogOut();
+  };
 
   return (
     <section className='profile'>

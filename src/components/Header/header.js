@@ -13,9 +13,13 @@ const history = useHistory();
       history.push('/profile');
     }
 
+    const linkToMain = () => {
+      window.open('/');
+    }
+
   return (
     <section className={`header ${props.isLoggedIn ? 'header_type_loggedin' : ''} ${props.isOpenHeader ? 'header_opened' : ''}`}>
-      {props.isLoggedIn ? <div className='header__logo header__logo_type_loggedin'></div> : <div className="header__logo"></div>}
+      {props.isLoggedIn ? <button className='header__logo' onClick={linkToMain}></button> : <button className="header__logo" onClick={linkToMain}></button>}
       {props.isLoggedIn ?
         (<><ul className='header__link-list header__link-list_type_loggedin'>
           <a className="header__link header__link_type_loggedin header__link_type_bold" href="/movies">Фильмы</a>

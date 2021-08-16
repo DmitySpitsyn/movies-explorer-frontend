@@ -40,6 +40,7 @@
 }
 
 .preloader {
+    position: absolute;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -50,7 +51,7 @@
 }
 
 .preloader.preloader_opened {
-  display: flex;
+    display: flex;
 }
 
 .preloader__container {
