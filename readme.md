@@ -2,7 +2,7 @@
 
 ## Проект Movies Explorer.
 
-Данный проект написан с помощью Express. В нем использована база данных Mongoose.
+Данный проект написан с помощью React.
 
 Сервер находится по адресу: 178.154.246.12
-Домен: dvspicin.diploma.nomoredomains.monster
+Домен: dvspicin.diploma.nomoredomains.club
