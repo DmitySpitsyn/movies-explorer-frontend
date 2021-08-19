@@ -65,11 +65,11 @@ function App() {
 
   function onRegister(registerData) {
     return auth.onRegister(registerData).then(() => {
-     onLogin({email: registerData.email, password: registerData.password})
-     .then(() => history.push('/movies'))
-
+      onLogin({ email: registerData.email, password: registerData.password })
+    }).then(() => {
+      setIsLoggedIn(true);
+      history.push('/movies')
     });
-    
   }
 
   function onLogin(loginData) {
