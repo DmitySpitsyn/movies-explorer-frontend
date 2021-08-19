@@ -30,7 +30,7 @@ function Profile(props) {
     } else {
       if (currentUser.name === value) {
         setIsValid(false);
-        setErrors({ ...errors, [name]: 'Значение имени пользователя должно отличаться' });
+        setErrors({ ...errors, [name]: 'Значение имени или почты пользователя должно отличаться' });
       } else {
         setIsValid(target.closest("form").checkValidity());
         setErrors({ ...errors, [name]: target.validationMessage });
@@ -45,7 +45,6 @@ function Profile(props) {
     if (validator.isEmail(value)) {
       if (currentUser.email === value) {
         setIsValidEmail(false);
-        setErrors({ ...errors, [name]: 'Значение почты пользователя должно отличаться' });
       } else {
         setIsValidEmail(true);
         setIsValid(true);
