@@ -202,7 +202,7 @@ useEffect(() => {
     } else {
       filtered = getMoviesServer.filter(movie => movie.nameRU.toLowerCase().includes(dataForSearch)); 
     }
-    setMovies(filtered);
+    setFilteredMovies(filtered);
     console.log(filtered)
     setIsOpenPreloader(false);
   }, [shortMovie, dataForSearch]);
@@ -301,7 +301,7 @@ useEffect(() => {
           <Switch>
             <ProtectedRoute exact path="/movies" setShortMovie={setShortMovie} createMovies={createMovies} savedMovies={savedMovies} isLoggedIn={isLoggedIn} 
             isOpenPreloader={isOpenPreloader} setIsOpenHeader={setIsOpenHeader} handleSearch={setDataForSearch}
-              openMenu={openMenu} checkLike={checkLike} deleteMovie={deleteMovie} filteredMovies={movies} component={Movies}
+              openMenu={openMenu} checkLike={checkLike} deleteMovie={deleteMovie} filteredMovies={filteredMovies} component={Movies}
             />
             <ProtectedRoute exact path="/saved-movies" isLoggedIn={isLoggedIn} handleSearch={setDataForSearch} deleteMovie={deleteMovie} setShortMovie={setShortMovie} 
             savedMovies={savedMovies} isOpenPreloader={isOpenPreloader} setIsOpenHeader={setIsOpenHeader} openMenu={openMenu} component={SavedMovies} /> ||
