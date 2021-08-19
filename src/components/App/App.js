@@ -27,23 +27,23 @@ function App() {
   const [currentUser, setCurrentUser] = useState({ name: 'Загрузка...', email: 'Загрузка...' });
   const [isOpenHeader, setIsOpenHeader] = useState(false);
   const [filteredMovies, setFilteredMovies] = useState([]);
-  const [filteredMoviesDubble, setFilteredMoviesDoubble] = useState([]);
+  const [getMoviesServer, setGetMoviesServer] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
   const [savedMoviesDubble, setSavedMoviesDubble] = useState([]);
   const [shortMovie, setShortMovie] = useState(false);
-  const [temporaryMovies, setTemporaryMovies] = useState([]);
+  const [dataForSearch, setDataForSearch] = useState('');
+  const [fileteredMoviesShort, setFilteredMoviesShort] = useState([]);
+  const [movies, setMovies] = useState([]);
 
 
   useEffect(() => {
     if (isLoggedIn) {
       setIsOpenPreloader(true);
-      const movies = JSON.parse(localStorage.getItem('movies'));
+      const getMovies = JSON.parse(localStorage.getItem('movies'));
       moviesApi.getMovies().then((data) => {
-        setFilteredMoviesDoubble(data);
-        if (!movies) {
-          setFilteredMovies(data);
-        } else {
-          setFilteredMovies(movies);
+        setGetMoviesServer(data);
+        if (!getMovies) {
+          localStorage.setItem('movies', JSON.stringify(data));
         }
       }).catch((err) => console.log(err));
 
@@ -52,24 +52,22 @@ function App() {
           setCurrentUser({ name: user.name, email: user.email, message: '' })
           setSavedMovies(savedmovies);
           setSavedMoviesDubble(savedmovies);
+          localStorage.setItem('savedMovies', JSON.stringify(savedmovies));
         }).then(() => setIsOpenPreloader(false)).catch(err => console.log(err));
 
     }
   }, [isLoggedIn]);
 
+ 
 
   useEffect(() => {
     tokenCheck();
   }, []);
 
-  useEffect(() => {
-    handleSearchShort();
-  }, [shortMovie]);
-
 
   function onRegister(registerData) {
     return auth.onRegister(registerData).then(() => {
-      history.push('/movies');
+     onLogin({email: registerData.email, password: registerData.password})
     });
   }
 
@@ -146,59 +144,103 @@ function App() {
     setIsMenuOpen(false);
   }
 
-  const handleSearchSaved = (data) => {
-    setIsOpenPreloader(true);
-    let filtered = [];
-    if (shortMovie) {
-      filtered = savedMoviesDubble.filter(movie => movie.nameRU.toLowerCase().includes(data)).filter(movie => movie.duration <= 40);
-    } else {
-      filtered = savedMoviesDubble.filter(movie => movie.nameRU.toLowerCase().includes(data));
-    }
-    setSavedMovies(filtered);
-    setIsOpenPreloader(false);
-  };
 
+  
+ 
+/*
   const handleSearchShort = () => {
+    console.log('ok')
+    setIsOpenPreloader(true);
+    let shortMovies = [];
     if (location.pathname.includes('/movies')) {
-      setTemporaryMovies(filteredMovies);
-      let filtered = [];
       if (shortMovie) {
-        setIsOpenPreloader(true);
-        filtered = filteredMovies.filter(movie => movie.duration <= 40);
-        setFilteredMovies(filtered);
+        shortMovies = movies.filter(movie => movie.duration <= 40);
       } else {
-        setFilteredMovies(temporaryMovies);
+        shortMovies = JSON.parse(localStorage.getItem('movies'));;
       }
+      console.log(shortMovies)
+      setMovies(shortMovies);
     }
     if (location.pathname.includes('/saved-movies')) {
-      setTemporaryMovies(savedMovies);
-      let filtered = [];
+      let tempMovies = JSON.parse(localStorage.getItem('savedMovies'));
+      let shortMovies = [];
       if (shortMovie) {
-        setIsOpenPreloader(true);
-        filtered = savedMovies.filter(movie => movie.duration <= 40);
-        setSavedMovies(filtered);
+        shortMovies = savedMovies.filter(movie => movie.duration <= 40);
+        setSavedMovies(shortMovies);
       } else {
-        setSavedMovies(temporaryMovies);
+        setSavedMovies(tempMovies);
       }
-    }
+    };
     setIsOpenPreloader(false);
   };
-
-
-
-  const handleSearch = (data) => {
+  
+*/
+/*
+useEffect(() => {
+  let localMovies = JSON.parse(localStorage.getItem('movies'));
+  console.log(localMovies)
+  if (localMovies) {
+    setMovies(localMovies);
+  }
+}, [])
+*/
+/*
+useEffect(() => {
+  setMovies(filteredMovies)
+}, [filteredMovies, shortMovie, dataForSearch])
+*/
+  useEffect(() => {
+    console.log(shortMovie, dataForSearch)
+    if (dataForSearch === '') {
+      return;
+    }
     setIsOpenPreloader(true);
     let filtered = [];
     if (shortMovie) {
-      filtered = filteredMoviesDubble.filter(movie => movie.nameRU.toLowerCase().includes(data)).filter(movie => movie.duration <= 40);
+      filtered = getMoviesServer.filter(movie => movie.nameRU.toLowerCase().includes(dataForSearch))
+        .filter(movie => movie.duration <= 40);
     } else {
-      filtered = filteredMoviesDubble.filter(movie => movie.nameRU.toLowerCase().includes(data));
+      filtered = getMoviesServer.filter(movie => movie.nameRU.toLowerCase().includes(dataForSearch)); 
     }
-    setFilteredMovies(filtered);
-    localStorage.setItem('movies', JSON.stringify(filtered));
+    setMovies(filtered);
+    console.log(filtered)
+    setIsOpenPreloader(false);
+  }, [shortMovie, dataForSearch]);
+
+
+/*
+  function handleSearch(data) {
+    setIsOpenPreloader(true);
+    if (data) {
+      console.log(data)
+      setDataForSearch(data);
+    }
+    if (location.pathname.includes('/movies')) {
+        if (shortMovie) {
+         let filtered = getMoviesServer.filter(movie => movie.nameRU.toLowerCase().includes(dataForSearch))
+            .filter(movie => movie.duration <= 40);
+          setFilteredMovies(filtered);
+        } else {
+          let filtered = getMoviesServer.filter(movie => movie.nameRU.toLowerCase().includes(dataForSearch));
+          setFilteredMovies(filtered);
+        }
+    }
+
+    if (location.pathname.includes('/saved-movies')) {
+      let filtered = [];
+      let filteredShort = [];
+      filtered = savedMoviesDubble.filter(movie => movie.nameRU.toLowerCase().includes(data));
+      filteredShort = savedMoviesDubble.filter(movie => movie.nameRU.toLowerCase().includes(data)).filter(movie => movie.duration <= 40);
+      localStorage.setItem('savedMovies', JSON.stringify(filtered));
+      if (shortMovie) {
+        setSavedMovies(filteredShort);
+      } else {
+        setSavedMovies(filtered);
+      }
+    }
     setIsOpenPreloader(false);
   }
-
+*/
 
   const createMovies = (data) => {
     return auth.createMovies(data).then((data) => {
@@ -229,19 +271,22 @@ function App() {
       .catch(err => console.log(err));
   }
 
+
+
   function checkLike(isLiked, card, savedmovie) {
+
     setIsOpenPreloader(true);
     if (!isLiked) {
       createMovies(card).then((newCard) => {
         if (newCard.movieId) {
-          setFilteredMovies((state) => state.map((c) => c.id === newCard.movieId ? card : c));
+          setMovies((state) => state.map((c) => c.id === newCard.movieId ? card : c));
           setIsOpenPreloader(false)
         }
       }).catch(err => console.log(err));
     }
     else {
       deleteMovie(savedmovie).then((newCard) => {
-        setFilteredMovies((state) => state.map((c) => c.id === newCard.movieId ? card : c));
+        setMovies((state) => state.map((c) => c.id === newCard.movieId ? card : c));
         setIsOpenPreloader(false)
       }).catch(err => console.log(err));
     }
@@ -254,11 +299,12 @@ function App() {
           <Header isOpenHeader={isOpenHeader} isLoggedIn={isLoggedIn} openMenu={openMenu} />
           <Preloader isOpen={isOpenPreloader} />
           <Switch>
-            <ProtectedRoute exact path="/movies" setShortMovie={setShortMovie} createMovies={createMovies} savedMovies={savedMovies} isLoggedIn={isLoggedIn} isOpenPreloader={isOpenPreloader} setIsOpenHeader={setIsOpenHeader} handleSearch={handleSearch}
-              openMenu={openMenu} checkLike={checkLike} deleteMovie={deleteMovie} filteredMovies={filteredMovies} component={Movies}
+            <ProtectedRoute exact path="/movies" setShortMovie={setShortMovie} createMovies={createMovies} savedMovies={savedMovies} isLoggedIn={isLoggedIn} 
+            isOpenPreloader={isOpenPreloader} setIsOpenHeader={setIsOpenHeader} handleSearch={setDataForSearch}
+              openMenu={openMenu} checkLike={checkLike} deleteMovie={deleteMovie} filteredMovies={movies} component={Movies}
             />
-            <ProtectedRoute exact path="/saved-movies"
-              isLoggedIn={isLoggedIn} handleSearchSaved={handleSearchSaved} deleteMovie={deleteMovie} setShortMovie={setShortMovie} savedMovies={savedMovies} isOpenPreloader={isOpenPreloader} setIsOpenHeader={setIsOpenHeader} openMenu={openMenu} component={SavedMovies} /> ||
+            <ProtectedRoute exact path="/saved-movies" isLoggedIn={isLoggedIn} handleSearch={setDataForSearch} deleteMovie={deleteMovie} setShortMovie={setShortMovie} 
+            savedMovies={savedMovies} isOpenPreloader={isOpenPreloader} setIsOpenHeader={setIsOpenHeader} openMenu={openMenu} component={SavedMovies} /> ||
             <ProtectedRoute path="/profile" isOpenPreloader={isOpenPreloader} setIsOpenHeader={setIsOpenHeader} isLoggedIn={isLoggedIn} onUpdateUser={onUpdateUser}
               openMenu={openMenu} onLogOut={onLogOut} component={Profile} />
             <AutorizationRoute path="/signin" isLoggedIn={isLoggedIn} onClickRegister={onClickRegister} onLogin={onLogin} component={Login} />

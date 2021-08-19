@@ -6,6 +6,7 @@ function FilterCheckBox(props) {
 
   function checkFilter() {
     setIsFilter(!isFilter);
+    props.resetPageCounter();
   }
 
   props.setShortMovie(isFilter);

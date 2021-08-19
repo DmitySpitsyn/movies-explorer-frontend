@@ -7,8 +7,8 @@ function Profile(props) {
   const currentUser = useContext(CurrentUserContext);
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
-  const [isValid, setIsValid] = useState(true);
-  const [isValidEmail, setIsValidEmail] = useState(true);
+  const [isValid, setIsValid] = useState(false);
+  const [isValidEmail, setIsValidEmail] = useState(false);
 
   props.setIsOpenHeader(true);
 
@@ -20,42 +20,44 @@ function Profile(props) {
     setErrors({email: currentUser.message});
   }, [currentUser.message]);
 
-  useEffect(() => {
-    blockButton();
-  }, [values]);
-
   function handleChange(evt) {
 
     const target = evt.target;
     const name = target.name;
     const value = target.value;
-
     if (name === 'email') {
       validationEmail(name, value);
     } else {
-      setErrors({ ...errors, [name]: target.validationMessage });
-      setIsValid(target.closest("form").checkValidity());
+      if (currentUser.name === value) {
+        setIsValid(false);
+        setErrors({ ...errors, [name]: 'Значение имени пользователя должно отличаться' });
+      } else {
+        setIsValid(target.closest("form").checkValidity());
+        setErrors({ ...errors, [name]: target.validationMessage });
+        setIsValidEmail(true);
+      }
     }
     setValues({ ...values, [name]: value });
   }
 
-function blockButton() {
-  if ((currentUser.name === values.name) && (currentUser.email === values.email)) {
-    setIsValid(false);
-  };
-}
-
   function validationEmail(name, value) {
+
     if (validator.isEmail(value)) {
-      setIsValidEmail(true)
-      setErrors({ ...errors, [name]: '' });
+      if (currentUser.email === value) {
+        setIsValidEmail(false);
+        setErrors({ ...errors, [name]: 'Значение почты пользователя должно отличаться' });
+      } else {
+        setIsValidEmail(true);
+        setIsValid(true);
+        setErrors({ ...errors, [name]: '' });
+      }
     } else {
       setIsValidEmail(false)
       setErrors({ ...errors, [name]: 'Введен некорректный Email' });
     }
   }
 
-
+console.log(isValid, isValidEmail)
     function handleSubmit(evt) {
       evt.preventDefault();
       props.onUpdateUser(values);
@@ -79,7 +81,7 @@ function blockButton() {
         <input id='email' className='form__input form__input_type_profile' name='email' onChange={handleChange} value={values.email} required placeholder='Введите email' type="text"></input>
         </div>
         <span className='form__input-error'>{errors.email}</span>
-        <button type='submit' disabled={(!isValid || !isValidEmail)} className='form__button-submit form__button-submit_type_profile'>Редактировать</button>
+        <button type='submit' disabled={!isValid || !isValidEmail} className='form__button-submit form__button-submit_type_profile'>Редактировать</button>
       </form>
       <button className="register__link register__link_type_profile" onClick={onLogOut}>Выйти из аккаунта</button>
     </section>

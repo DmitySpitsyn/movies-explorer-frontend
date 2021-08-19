@@ -29,7 +29,7 @@ function handleChange(evt) {
           <button type='submit' className='form__button'></button>
         </form>
         <span className='form__input-error'>{error}</span>
-        <FilterCheckBox setShortMovie={props.setShortMovie} />
+        <FilterCheckBox resetPageCounter={props.resetPageCounter} setShortMovie={props.setShortMovie} />
       </div>
       <div className='underline'></div>
     </section>

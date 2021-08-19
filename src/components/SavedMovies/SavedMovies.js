@@ -10,7 +10,7 @@ props.setIsOpenHeader(true);
 
   return (
     <section className="movies">
-      <SearchForm handleSearch={props.handleSearchSaved} setShortMovie={props.setShortMovie}/>
+      <SearchForm handleSearch={props.handleSearch} setShortMovie={props.setShortMovie}/>
       <MoviesCardList savedMovies={props.savedMovies} deleteMovie={props.deleteMovie}/>
       <div className='saveddevider'></div>
       <Footer />
