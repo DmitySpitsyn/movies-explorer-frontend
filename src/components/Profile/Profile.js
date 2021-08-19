@@ -45,6 +45,7 @@ function Profile(props) {
     if (validator.isEmail(value)) {
       if (currentUser.email === value) {
         setIsValidEmail(false);
+        setErrors({ ...errors, [name]: 'Значение имени или почты пользователя должно отличаться' });
       } else {
         setIsValidEmail(true);
         setIsValid(true);
