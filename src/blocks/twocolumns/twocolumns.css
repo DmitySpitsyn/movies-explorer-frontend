@@ -1,0 +1,22 @@
+.twocolumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1140px;
+  width: 100%;
+  gap: 40px;
+}
+
+@media screen and (max-width:950px) {
+  .twocolumns {
+    max-width: 668px;
+    gap: 28px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .twocolumns {
+    grid-template-columns: 1fr;
+    max-width: 284px;
+    gap: 0;
+  }
+}

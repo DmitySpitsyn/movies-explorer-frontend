@@ -1,0 +1,14 @@
+.moviescard__span {
+    position: absolute;
+    left: 1px;
+    top: 2px;
+    width: 14px;
+    height: 13px;
+    background: url(../../../images/like-but.png) no-repeat;
+    background-position: -10px -10px;
+    background-color: #F4F4F4;
+}
+
+.moviescard__span_checked {
+  background-position: -44px -10px;
+}

@@ -1,0 +1,19 @@
+.filtercheckbox__button {
+    width: 36px;
+    height: 20px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width:800px) {
+    .filtercheckbox__button {
+        margin: 0 122px 0 0;
+    }
+}
+
+  margin: 0 122px 0 0;
+  
+  .filtercheckbox__button:hover {
+      opacity: 0.5;
+  }

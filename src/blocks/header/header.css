@@ -1,0 +1,13 @@
+.header {
+    max-width: 1280px;
+    width: 100%;
+    background-color: #DDDEE3;
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.header.header_opened {
+  display: flex;
+}

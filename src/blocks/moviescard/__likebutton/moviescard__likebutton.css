@@ -1,0 +1,20 @@
+.moviescard__likebutton {
+    width: 16px;
+    display: block;
+    position: relative;
+    margin: 30px 0 0 0;
+    cursor: pointer;
+}
+
+.moviescard__likebutton:hover {
+    opacity: 0.5;
+}
+
+@media screen and (max-width:400px) {
+    .moviescard__likebutton {
+        grid-row-start: 1;
+        grid-column-start: 2;
+        justify-self: flex-end;
+        margin: 15px 15px 0 0px;
+    }
+}

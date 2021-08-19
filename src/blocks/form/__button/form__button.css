@@ -1,0 +1,15 @@
+.form__button {
+    width: 44px;
+    height: 44px;
+    border: none;
+    background-image: url(../../../images/search-button-image.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 6px;
+}
+
+.form__button:hover {
+    opacity: 0.5;
+}

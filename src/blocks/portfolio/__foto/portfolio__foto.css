@@ -1,0 +1,19 @@
+.portfolio__foto {
+  width: 270px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media screen and (max-width:950px) {
+  .portfolio__foto {
+    width: 255px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .portfolio__foto {
+    width: 292px;
+    grid-row-start: 1;
+    margin-bottom: 100px;
+  }
+}

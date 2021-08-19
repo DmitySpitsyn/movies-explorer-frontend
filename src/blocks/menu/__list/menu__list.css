@@ -1,0 +1,11 @@
+.menu__list {
+  max-width: 520px;
+  width: 100%;
+  background: #FFFFFF;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  cursor: default;
+  align-items: center;
+  padding: 159px 0 0 0;
+}

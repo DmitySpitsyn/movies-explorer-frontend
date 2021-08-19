@@ -1,0 +1,21 @@
+.twocolumns_type_footer {
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #E8E8E8;
+    padding: 20px 0 20px 0;
+    margin: 0;
+    gap: 0;
+}
+
+@media screen and (max-width:950px) {
+  .twocolumns_type_footer {
+    max-width: 725px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .twocolumns_type_footer {
+    max-width: 300px;
+    padding: 18px 0 10px 0;
+  }
+}

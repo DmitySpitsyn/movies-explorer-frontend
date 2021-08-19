@@ -1,0 +1,32 @@
+.aboutproject__text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000000;
+    padding: 0;
+    margin: 26px 0 110px 0;
+    text-align: left;
+    max-width: 550px;
+    width: 100%;
+}
+
+@media screen and (max-width:950px) {
+    .aboutproject__text {
+        margin: 22px 0 93px 0;
+        max-width: 319px;
+        width: 100%;
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media screen and (max-width:400px) {
+  .aboutproject__text {
+      margin: 15px 0 0 0;
+      max-width: 284px;
+      width: 100%;
+      font-size: 11px;
+      line-height: 16px;
+  }
+}

@@ -1,0 +1,20 @@
+.filtercheckbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    padding: 35px 122px 0 0;
+}
+
+
+@media screen and (max-width:800px) {
+  .filtercheckbox  {
+      padding: 0;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .filtercheckbox  {
+    padding: 43px 0 0 0;
+  }
+}

@@ -1,0 +1,18 @@
+.header__button_type_loggedin {
+    border: none;
+    background-color: #FAFAFA;
+    background-image: url(../../../../images/acount-image.svg);
+    background-repeat: no-repeat;
+    width: 130px;
+    background-position: right;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+}
+
+@media screen and (max-width:950px) {
+    .header__button_type_loggedin {
+        display: none;
+    }
+}

@@ -1,0 +1,15 @@
+    .moviescard__image {
+        width: 220px;
+        margin: 0 6px 0 0;
+        cursor: pointer;
+    }
+    
+    .header__link:hover {
+        opacity: 0.5;
+    }
+    
+    @media screen and (max-width:400px) {
+        .moviescard__image {
+            width: 300px;
+        }
+    }

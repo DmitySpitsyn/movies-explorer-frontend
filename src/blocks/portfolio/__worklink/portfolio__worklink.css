@@ -1,0 +1,23 @@
+.portfolio__worklink {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 50px;
+    color: #000000;
+    text-decoration: none;
+    margin: 0 0 19px 0;
+    letter-spacing: -0.04em;
+}
+
+@media screen and (max-width:950px) {
+  .portfolio__worklink {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .portfolio__worklink {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}

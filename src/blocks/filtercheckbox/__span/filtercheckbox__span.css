@@ -1,0 +1,27 @@
+.filtercheckbox__span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../../../images/check-button.svg) no-repeat;
+    background-position: 0 -40px;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 1px 0 0 49px;
+    background-color: #F9F9F9;
+}
+
+input[type="checkbox"]:checked+.filtercheckbox__span {
+    background-position: 0 0;
+}
+
+@media screen and (max-width:400px) {
+    .filtercheckbox__span {
+        font-weight: normal;
+        font-size: 11px;
+        line-height: 18px;
+        padding: 1px 0 0 54px;
+    }
+}

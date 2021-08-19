@@ -1,0 +1,10 @@
+.footer__listitem {
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (max-width:400px) {
+  .footer__listitem {
+    padding: 9px 0 0 0;
+  }
+}

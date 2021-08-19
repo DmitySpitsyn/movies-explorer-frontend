@@ -1,0 +1,17 @@
+.moviescard__timestamp {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    color: #A0A0A0;
+    margin: 0;
+}
+
+@media screen and (max-width:400px) {
+    .moviescard__timestamp {
+      font-size: 11px;
+      line-height: 13px;
+      text-align: start;
+      margin: 5px 0 14px 13px;
+    }
+}
