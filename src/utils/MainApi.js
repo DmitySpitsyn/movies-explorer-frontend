@@ -103,9 +103,9 @@ deleteMovie(movieId) {
 }
 
 };
-//https://api.dvspicin.diploma.nomoredomains.monster
+
 const auth = new Auth({
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://api.dvspicin.diploma.nomoredomains.monster',
   headers: {
       'Content-Type': 'application/json',
   }
