@@ -1,15 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router';
+
 
 function FilterCheckBox(props) {
+
+  const location = useLocation()
 
   const [isFilter, setIsFilter] = useState(false);
 
   function checkFilter() {
     setIsFilter(!isFilter);
+    if (location.pathname.includes('/saved-movies')) {
+      return; 
+    }
     props.resetPageCounter();
   }
 
-  props.setShortMovie(isFilter);
+  useEffect(() => {
+    props.setShortMovie(isFilter);
+  }) 
+
+  
 
   return (
     <section className="filtercheckbox">

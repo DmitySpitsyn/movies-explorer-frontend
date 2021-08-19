@@ -1,11 +1,14 @@
 import SearchForm from "../Movies/SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
 import Footer from "../Footer/Footer";
+import { useEffect } from "react";
 
 function SavedMovies(props) {
 
+useEffect(() => {
+  props.setIsOpenHeader(true);
+});
 
-props.setIsOpenHeader(true);
 
 
   return (

@@ -1,14 +1,16 @@
 import SearchForm from '../Movies/SearchForm/SearchForm'
 import MoviesCardList from './MoviesCardList/MoviesCardList'
 import Footer from '../Footer/Footer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Movies(props) {
 
   const [pageCounter, setPageCounter] = useState(0);
   const [buttonState, setButtonState] = useState(false);
 
+  useEffect(() => {
     props.setIsOpenHeader(true);
+  });
  
   function updatePage() {
     setPageCounter(pageCounter + 1)

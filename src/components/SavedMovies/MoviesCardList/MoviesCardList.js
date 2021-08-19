@@ -1,7 +1,7 @@
 import MoviesCard from "../MoviesCard/MoviesCard";
 
 function MoviesCardList(props) {
-  console.log(props.savedMovies)
+
   return (
     <section className="moviescardlist">
         {

@@ -46,7 +46,7 @@ function Register(props) {
 
 function handleSubmit(evt) {
     evt.preventDefault();
-    props.onRegister(values).then(() => resetForm())
+    props.onRegister(values).then(() => {resetForm()})
     .catch((err) => {
       err.json().then((err) => setIsServerError(err.message)) 
     });

@@ -23,12 +23,20 @@ function MoviesCardList(props) {
 
 
   if (window.innerWidth <= 400) {
-    for (let i = amountCards; i < props.filteredMovies.length; i += 5) {
-      arr.push(props.filteredMovies.slice(0, i));
+    if (props.filteredMovies.length <= amountCards) {
+      arr.push(props.filteredMovies);
+    } else {
+      for (let i = amountCards; i <= props.filteredMovies.length; i += 5) {
+        arr.push(props.filteredMovies.slice(0, i));
+      };
     };
   } else {
-    for (let i = amountCards; i <= props.filteredMovies.length; i += 1) {
-      arr.push(props.filteredMovies.slice(0, i));
+    if (props.filteredMovies.length <= amountCards) {
+      arr.push(props.filteredMovies);
+    } else {
+      for (let i = amountCards; i <= props.filteredMovies.length; i += 1) {
+        arr.push(props.filteredMovies.slice(0, i));
+      };
     };
   };
 
@@ -41,12 +49,13 @@ function MoviesCardList(props) {
       props.hideButton(false);
     }
   }, [props.pageCounter, amountCards, arr.length, props]);
-
+console.log(props.filteredMovies)
+console.log(arr[0].length)
 
   return (
     <section className='moviescardlist'>
       {
-        (arr.length === 0) ? <span>Ничего не найдено</span> :
+        ((arr[0].length === 0) || (arr === undefined)) ? <span>Ничего не найдено</span> :
           arr[props.pageCounter].map((card) => (<MoviesCard
             key={card.id}
             card={card}
